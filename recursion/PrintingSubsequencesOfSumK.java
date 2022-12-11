@@ -24,6 +24,8 @@ public class PrintingSubsequencesOfSumK {
         int k = 3;
         ArrayList<Integer> result = new ArrayList<>();
         printSubsImplForSumK(arr,0,result,k,0);
+        System.out.println("Print only one subsequence for the given sum");
+        printOnlyOneSubsequenceOfSumK(arr,0,result,k,0);
     }
 
     private static void printSubsImplForSumK(int[] arr,int index, ArrayList<Integer> result, int k, int sum) {
@@ -44,6 +46,30 @@ public class PrintingSubsequencesOfSumK {
         sum -= arr[index];
         printSubsImplForSumK(arr, index+1, result, k, sum);
     }
+
+    private static boolean printOnlyOneSubsequenceOfSumK(int[] arr, int index, ArrayList<Integer> result, int k, int sum){
+        //Base case:
+        if(index >= arr.length){
+            if(sum == k){
+                printTheList(result);
+                return true;
+            }
+            return false;
+        }
+
+        //Take perform
+        result.add(arr[index]);
+        sum += arr[index];
+        if(printOnlyOneSubsequenceOfSumK(arr, index + 1, result, k, sum)){
+            return true;
+        }
+        else{
+            result.remove(Integer.valueOf(arr[index]));
+            sum -= arr[index];
+            return printOnlyOneSubsequenceOfSumK(arr, index+1, result, k, sum);
+        }
+    }
+
 
     private static void printTheList(ArrayList<Integer> list){
         System.out.print("[");
