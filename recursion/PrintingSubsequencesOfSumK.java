@@ -40,10 +40,11 @@ public class PrintingSubsequencesOfSumK {
         }
 
         result.add(arr[index]);
-        sum += arr[index];
-        printSubsImplForSumK(arr, index+1, result, k, sum);
+        //TO get an idea, Keep in mind the recursive Tree
+        //sum += arr[index];
+        printSubsImplForSumK(arr, index+1, result, k, sum+arr[index]);
         result.remove(Integer.valueOf(arr[index]));
-        sum -= arr[index];
+        //sum -= arr[index];
         printSubsImplForSumK(arr, index+1, result, k, sum);
     }
 
