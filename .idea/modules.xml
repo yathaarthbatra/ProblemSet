@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../DSImpl/DSImpl.iml" filepath="$PROJECT_DIR$/../DSImpl/DSImpl.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/ProblemSet.iml" filepath="$PROJECT_DIR$/.idea/ProblemSet.iml" />
     </modules>
   </component>
